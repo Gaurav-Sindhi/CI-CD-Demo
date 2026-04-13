@@ -1,10 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My DevOps Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CI/CD DevOps Project</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    text-align: center;
+    width: 360px;
+    animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 26px;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 81, 47, 0.7);
+}
+
+#msg {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ffd;
+}
+
+/* small badge */
+.badge {
+    margin-top: 15px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+</style>
+
 </head>
 <body>
-    <h1>🚀 Deployed using AWS CI/CD Pipeline</h1>
-    <p>Hello Gaurav 🔥</p>
+
+<div class="card">
+    <h1>🚀 CI/CD Pipeline LIVE</h1>
+
+    <p>
+        Deployed using <b>AWS CodePipeline + S3</b><br>
+        Built by <b>Gaurav Narayani</b>
+    </p>
+
+    <button onclick="deploy()">Trigger Deployment 🔥</button>
+
+    <p id="msg"></p>
+
+    <div class="badge">
+        ⚡ Auto Deployed via GitHub Push
+    </div>
+</div>
+
+<script>
+function deploy() {
+    const messages = [
+        "✅ Deployment Triggered!",
+        "🚀 Pipeline Running...",
+        "🔥 Code Successfully Updated!",
+        "🌍 Website Live on S3!"
+    ];
+
+    let msgBox = document.getElementById("msg");
+
+    let randomMsg = messages[Math.floor(Math.random() * messages.length)];
+
+    msgBox.innerText = randomMsg;
+
+    msgBox.style.opacity = "0";
+    setTimeout(() => {
+        msgBox.style.opacity = "1";
+    }, 100);
+}
+</script>
+
 </body>
 </html>
+>>>>>>> 82b815c (Initial commit - CI/CD project)
