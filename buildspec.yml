@@ -3,11 +3,13 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing...."
+      - echo "Installing dependencies..."
+      - npm install -g htmlhint
 
   build:
     commands:
-      - echo "Build phase - nothing to build"
+      - echo "Running HTML validation..."
+      - htmlhint index.html
 
 artifacts:
   files:
